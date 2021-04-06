@@ -22,6 +22,7 @@ import { defineComponent, reactive, ref, getCurrentInstance } from "vue";
 import { setSession} from "../utils/session"
 import {useRouter} from "vue-router"
 import {useStore} from "vuex"
+import loginApi from '../api/login'
 export default defineComponent({
   setup() {
     const router = useRouter();
@@ -40,29 +41,30 @@ export default defineComponent({
     const login = () => {
       ruleForm.value?.validate((valid: any) => {
         if (valid) {
-          fetch("http://172.16.0.161:4085/api/v1/Account/Login", {
-            body: JSON.stringify(loginData),
-            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: "same-origin", // include, same-origin, *omit
-            headers: {
-              "user-agent": "Mozilla/4.0 MDN Example",
-              "content-type": "application/json",
-            },
-            method: "POST", // *GET, POST, PUT, DELETE, etc.
-            mode: "cors", // no-cors, cors, *same-origin
-            redirect: "follow", // manual, *follow, error
-            referrer: "no-referrer", // *client, no-referrer
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              if(data.Status){
-                  setSession('user',data.Data);
-                  router.push("/index/home");
-                  store.commit('public/SET_USER', data.Data)
-              }
-              ctx.$msg[data.Status ? "success" : "warning"](data.Message);
+          console.log({...loginApi})
+          // fetch("http://172.16.0.161:4085/api/v1/Account/Login", {
+          //   body: JSON.stringify(loginData),
+          //   cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+          //   credentials: "same-origin", // include, same-origin, *omit
+          //   headers: {
+          //     "user-agent": "Mozilla/4.0 MDN Example",
+          //     "content-type": "application/json",
+          //   },
+          //   method: "POST", // *GET, POST, PUT, DELETE, etc.
+          //   mode: "cors", // no-cors, cors, *same-origin
+          //   redirect: "follow", // manual, *follow, error
+          //   referrer: "no-referrer", // *client, no-referrer
+          // })
+          //   .then((res) => res.json())
+          //   .then((data) => {
+          //     if(data.Status){
+          //         setSession('user',data.Data);
+          //         router.push("/index/home");
+          //         store.commit('public/SET_USER', data.Data)
+          //     }
+          //     ctx.$msg[data.Status ? "success" : "warning"](data.Message);
 
-            });
+          //   });
         }
       });
     };
