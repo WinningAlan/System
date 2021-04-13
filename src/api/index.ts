@@ -6,3 +6,6 @@
  * @Description: In User Settings Edit
  * @FilePath: \System\src\api\index.ts
  */
+const files = import.meta.globEager("./*.ts");
+let allApi: any = {};
+

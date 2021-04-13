@@ -7,22 +7,22 @@
  * @FilePath: \System\src\utils\session.ts
  */
 export const setSession = (name: string, data: any) => {
-     if(!name){return};
-     if(typeof data !== 'string'){
-       try {
-           data = JSON.stringify(data);
+    if (!name) { return };
+    if (typeof data !== 'string') {
+        try {
+            data = JSON.stringify(data);
 
-       } catch (error) {
-         return false
-       }
-     }
-     sessionStorage.setItem(name,data)
+        } catch (error) {
+            return false
+        }
+    }
+    sessionStorage.setItem(name, data)
 
 }
 
-export const getSession = (name:string)=>{
-    if(!name){return}
-    let content:any= window.sessionStorage.getItem(name)
+export const getSession = (name: string) => {
+    if (!name) { return }
+    let content: any = window.sessionStorage.getItem(name)
     try {
         return JSON.parse(content)
     } catch (error) {
