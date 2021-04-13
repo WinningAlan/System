@@ -10,7 +10,7 @@
   <el-container>
     <el-aside class="aside" :class="{ isCollapse: isCollapse }">
       <div class="menu_header">
-        <img src="../assets//logo.png" clss="menu_img" />
+        <img src="../assets//logo.png" class="menu_img" />
         <p :class="{ showTitle: isCollapse }">急诊管理系统</p>
       </div>
       <asideMenu />
@@ -80,7 +80,8 @@ export default defineComponent({
   p {
     font-size: 16px;
     font-weight: bold;
-    padding-left: 10px;
+    // flex: 1;
+    // padding-left: 10px;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
   }

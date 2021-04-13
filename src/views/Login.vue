@@ -58,9 +58,9 @@ export default defineComponent({
           //   .then((res) => res.json())
           //   .then((data) => {
           //     if(data.Status){
-          //         setSession('user',data.Data);
-          //         router.push("/index/home");
-          //         store.commit('public/SET_USER', data.Data)
+                  setSession('user',{isdata:true});
+                  router.push("/index/home");
+                  store.commit('public/SET_USER', {isdata:true})
           //     }
           //     ctx.$msg[data.Status ? "success" : "warning"](data.Message);
 

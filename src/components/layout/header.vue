@@ -7,7 +7,7 @@
  * @FilePath: \System\src\components\layout\header.vue
 -->
 <template>
-  <div class="header">
+  <div class="nav_header">
     <div class="iscolse">
       <span @click="changeCollapse">
         <i class="el-icon-s-fold" v-if="!isCollapse"></i>
@@ -39,7 +39,7 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-.header {
+.nav_header {
   background: #0071e7;
   height: 60px;
   line-height: 60px;
