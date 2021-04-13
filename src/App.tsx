@@ -18,7 +18,7 @@ export default defineComponent({
                 <div class="app">
                     <RouterView/>
                 </div>
-                <div id="diaLog"></div>
+                 <div id="diaLog"></div>
                 </>
             )
         }
